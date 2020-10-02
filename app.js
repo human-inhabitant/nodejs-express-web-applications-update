@@ -11,11 +11,17 @@ const port = process.env.PORT || 3e3;
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use('/css', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/css')));
+app.use('/fonts', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/fonts')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/js')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
+app.set('views', './src/views');
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views/index.html'));
+  res.render('index', {
+    list: ['a', 'b'],
+    title: 'My Library'
+  });
 });
 
 app.server = app.listen(port, () => {

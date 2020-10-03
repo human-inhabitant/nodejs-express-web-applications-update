@@ -13,6 +13,7 @@
     "jquery": "^3.5.1",
     "mongoose": "^5.10.7",
     "morgan": "^1.10.0",
+    "mssql": "^6.2.3",
     "pug": "^3.0.0"
   },
   "devDependencies": {
@@ -26,7 +27,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "DEBUG=app nodemon app.js",
+    "start": "DEBUG=app:* nodemon app.js",
     "test": "mocha tests/**/*Tests.js"
   },
   "nodemonConfig": {

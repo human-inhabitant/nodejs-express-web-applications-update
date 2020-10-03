@@ -4,9 +4,22 @@ const chalk = require('chalk');
 const debug = require('debug')('app');
 const morgan = require('morgan');
 const path = require('path');
+const sql = require('mssql');
 
 const app = express();
 const port = process.env.PORT || 3e3;
+const config = {
+  user: 'pslibrary',
+  password: 'U!8$5KZg3^QyhoDE',
+  server: 'ps-library.database.windows.net',
+  database: 'ps-library',
+  options: {
+    encrypt: true,
+    enableArithAbort: true
+  }
+};
+
+sql.connect(config).catch((err) => debug(err));
 
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public')));

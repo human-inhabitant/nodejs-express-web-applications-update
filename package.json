@@ -4,6 +4,7 @@
   "description": "Building Web Applications with Node.js and Express 4.0",
   "main": "app.js",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.0",
     "body-parser": "^1.19.0",
     "bootstrap": "^3.4.1",
     "chalk": "^4.1.0",
@@ -11,6 +12,7 @@
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
+    "mongodb": "^3.6.2",
     "mongoose": "^5.10.7",
     "morgan": "^1.10.0",
     "pug": "^3.0.0"
@@ -26,7 +28,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "DEBUG=app nodemon app.js",
+    "start": "DEBUG=app,app:* nodemon app.js",
     "test": "mocha tests/**/*Tests.js"
   },
   "nodemonConfig": {

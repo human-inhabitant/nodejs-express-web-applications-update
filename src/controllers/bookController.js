@@ -13,10 +13,19 @@ function bookController(bookService, nav) {
         const db = client.db(dbName);
         const col = await db.collection('books');
         const books = await col.find().toArray();
+        // My get all books by ID hack...
+        const promises = books.map(async (item) => {
+          const book = {};
+          book.item = item;
+          book.detail = await bookService.getBookById(item.bookId);
+          return book;
+        });
+        const bookDetail = await Promise.all(promises);
+        // End hack...
         res.render('bookListView', {
           nav,
           title: 'My Library',
-          books
+          books: bookDetail
         });
       } catch (err) {
         debug(err.stack);

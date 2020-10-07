@@ -47,12 +47,12 @@ footer {
 }
 
 #topPanel {
-  padding-top:0px;
+  padding-top:0;
   padding-left:22px;
   padding-right:22px;
 }
 #topPanel .panel-body {
-  padding-top:0px;
+  padding-top:0;
 }
 
 .navbar.affix {
@@ -120,6 +120,9 @@ a,a:hover {
   border-color:transparent;
   border-radius:0;
 }
+.panel-title > a {
+  color: rgba(255,255,255,0.8);
+}
 
 .thumbnail {
   margin-bottom:8px;
@@ -165,3 +168,8 @@ a,a:hover {
 .btn-twitter:hover {background-color:#3088FF;color:#62BBFF;}
 .btn-facebook:hover {background-color:#2A4998;color:#4C6BBA;}
 .btn-google-plus:hover {background-color:#C23836;color:#E45A58;}
+
+.panel-sign-up {
+  background-color:#111166;
+  color:#fff;
+}

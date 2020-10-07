@@ -1,0 +1,29 @@
+<%-include('header')%>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <p class="pull-right">
+                                        <a href="/auth/logout" class="btn btn-default">Log Out</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="panel">
+                                        <div class="panel-body">
+                                            Welcome <strong><%=user.username%></strong>... this is your
+                                            super secret ID: <strong><em><%=user._id%></em></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/col-12-->
+            </div>
+        </div>
+<%-include('footer')%>

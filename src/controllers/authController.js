@@ -37,10 +37,16 @@ function authController(nav) {
     }
   }
   function getProfile(req, res) {
-    res.json(req.user);
+    res.render('profileView', {
+      nav, title: 'Profile', user: req.user
+    });
+  }
+  function getLogOut(req, res) {
+    req.logout();
+    res.redirect('/');
   }
   return {
-    postSignUp, getSignIn, middleWare, getProfile
+    postSignUp, getSignIn, middleWare, getProfile, getLogOut
   };
 }
 

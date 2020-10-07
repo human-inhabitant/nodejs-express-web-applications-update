@@ -46,7 +46,6 @@ function bookController(bookService, nav) {
         const col = await db.collection('books');
         const book = await col.findOne({ _id: new ObjectID(id) });
         book.details = await bookService.getBookById(book.bookId);
-        debug(book);
         res.render('bookView', {
           nav,
           title: 'My Library',
@@ -59,11 +58,11 @@ function bookController(bookService, nav) {
     }());
   }
   function middleware(req, res, next) {
-    // if (req.user) {
-    next();
-    // } else {
-    //   res.redirect('/');
-    // }
+    if (req.user) {
+      next();
+    } else {
+      res.redirect('/');
+    }
   }
   return { getIndex, getById, middleware };
 }

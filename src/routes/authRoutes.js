@@ -5,7 +5,7 @@ const authController = require('../controllers/authController');
 function router(nav) {
   const authRouter = express.Router();
   const {
-    postSignUp, getSignIn, middleWare, getProfile
+    postSignUp, getSignIn, middleWare, getProfile, getLogOut
   } = authController(nav);
   authRouter.route('/signUp').post(postSignUp);
   authRouter.route('/signin')
@@ -17,6 +17,7 @@ function router(nav) {
   authRouter.route('/profile')
     .all(middleWare)
     .get(getProfile);
+  authRouter.route('/logout').get(getLogOut);
   return authRouter;
 }
 

@@ -42,10 +42,12 @@ const nav = [
 const bookRouter = require('./src/routes/bookRoutes')(nav);
 const adminRouter = require('./src/routes/adminRoutes')(nav);
 const authRouter = require('./src/routes/authRoutes')(nav);
+const authorRouter = require('./src/routes/authorRoutes')(nav);
 
 app.use('/books', bookRouter);
 app.use('/admin', adminRouter);
 app.use('/auth', authRouter);
+app.use('/authors', authorRouter);
 
 app.get('/', (req, res) => {
   res.render('index', {
